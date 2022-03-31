@@ -14,7 +14,28 @@
     <title>Library</title>
 </head>
 <body>
-    <div id="bookInput"></div>
+    <div id="bookInputContainer">
+        <form action="#" id="bookInput">
+            <button id="closeButton">X</button>
+            <div class="labelsInputs">
+                <label for="tittleInput">Tittle</label>
+                <input type="text" id="tittleInput" class="bookInputs" placeholder="Anne Frank's Diary" required>
+            </div>
+            <div class="labelsInputs">
+                <label for="authorInput">Author</label>
+                <input type="text" id="authorInput" class="bookInputs" placeholder="Anne Frank" required>
+            </div>
+            <div class="labelsInputs">
+                <label for="numberInput">Pages</label>
+                <input type="number" id="pagesInput" min="1" max="10000" class="bookInputs" placeholder="276" required>
+            </div>
+            <div id="readedLabel" class="labelsInputs">
+                <label for="readedInput">Already read?</label>
+                <input type="checkbox" id="readedInput">
+            </div>
+            <button type="submit" id="addButton">Add</button>
+        </form>
+    </div>
     <header>
         <h1>Library</h1>
     </header>

@@ -1,71 +1,29 @@
 const addBook = document.getElementById('addBook')
 const goToTop = document.getElementById('goToTop')
+const bookInputContainer = document.getElementById('bookInputContainer')
+const closeButton = document.getElementById('closeButton')
+const addButton = document.getElementById('addButton')
 
 let myLibrary = [];
 
-function Book() {
-    
+function Book(Tittle, Author, Pages, Read) {
+    this.Tittle = Tittle
+    this.Author = Author
+    this.Pages = Pages
+    this.Read = Read
 }
 
 function addBookToLibrary() {
     
 }
 
-function removeMainButtons() {
-    addBook.style.display = 'none'
-    goToTop.style.display = 'none'
+function createBook() {
+    
 }
 
-function bookInput() {
-    // Variables
-    const bookInputContainer = document.createElement('div')
-    const bookInput = document.getElementById('bookInput')
-    const closeButton = document.createElement('button')
-    const tittleInput = document.createElement('input')
-    const authorInput = document.createElement('input')
-    const pagesInput = document.createElement('input')
-    const addButton = document.createElement('button')
-
-    // Add class & style
-    bookInputContainer.classList.add('addBookContainer')
-    bookInput.classList.add('bookInput')
-    closeButton.classList.add('closeButtonInput')
-    tittleInput.classList.add('bookInputs')
-    authorInput.classList.add('bookInputs')
-    pagesInput.classList.add('bookInputs')
-    addButton.classList.add('addButtonInput')
-
-    // Add attribute
-
-    // Title
-    tittleInput.setAttribute('id', 'tittleInput')
-
-    // Author
-    authorInput.setAttribute('id', 'authorInput')
-
-    // Pages
-    pagesInput.setAttribute('id', 'pagesInput')
-    pagesInput.setAttribute('type', 'number')
-
-    // Buttons
-    addButton.setAttribute('id', 'addButtonInput')
-
-    // Button's text
-    closeButton.textContent = 'X'
-    addButton.textContent = 'Add book'
-
-    // Append children
-    bookInput.appendChild(bookInputContainer)
-    bookInputContainer.appendChild(closeButton)
-    bookInputContainer.appendChild(tittleInput)
-    bookInputContainer.appendChild(authorInput)
-    bookInputContainer.appendChild(pagesInput)
-    bookInputContainer.appendChild(addButton)
-
-    removeMainButtons()
-}
-
-addBook.addEventListener('click', bookInput)
+window.addEventListener('load', function () {
+    bookInputContainer.style.display = 'none'
+})
 
 goToTop.addEventListener('click', function () {
     window.scrollTo({
@@ -73,3 +31,17 @@ goToTop.addEventListener('click', function () {
         behavior: 'smooth'
     })
 })
+
+addBook.onclick = () => {
+    bookInputContainer.style.display = ''
+    addBook.style.display = 'none'
+    goToTop.style.display = 'none'
+}
+
+closeButton.onclick = () => {
+    bookInputContainer.style.display = 'none'
+    addBook.style.display = ''
+    goToTop.style.display = ''
+}
+
+addButton.onclick = createBook
