@@ -21,7 +21,7 @@ header {
     width: 100%;
 }
 
-main {
+#Main {
     min-height: 75vh;
     width: 100%;
     display: flex;
@@ -96,11 +96,7 @@ h1 {
     font-size: 2em;
 }
 
-.Author {
-    font-size: 1.5em;
-}
-
-.Pages {
+.Author, .Pages {
     font-size: 1.5em;
 }
 
@@ -112,6 +108,7 @@ h1 {
 .Read, .NotRead, .Remove {
     height: 3em;
     width: 6em;
+    margin: 0.5em;
     font-size: 1.5em;
     font-weight: 600;
     border-radius: 20px;
@@ -149,7 +146,7 @@ h1 {
     gap: 8px;
 }
 
-#readedLabel {
+#readLabel {
     width: 25vw;
     flex-direction: row;
     align-items: center;
@@ -184,20 +181,6 @@ label {
     background: lightgray;
     border-radius: 1em;
 }
-
-.bookInputs:not(:placeholder-shown):invalid {
-    border: 2px solid red;
-    animation: bounce 1s infinite alternate;
-}
-
-@keyframes bounce {
-    from {
-      transform: translateX(15px);
-    }
-    to {
-      transform: translateX(-15px);
-    }
-  }
 
 #closeButton {
     height: 2em;
