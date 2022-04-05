@@ -38,7 +38,10 @@ function removeBook() {
     const Book = this.value
     for (let i = 0; i < myLibrary.length; i++) {
         if (myLibrary[i].Tittle == Book) {
-            alert(`É esse! ${myLibrary[i].Tittle}`)
+            myLibrary.splice(i, 1);
+            const Main = document.querySelector('#Main');
+            const Book = document.querySelectorAll('.Book');
+            Main.removeChild(Book[i])
         } else {
             continue
         }
