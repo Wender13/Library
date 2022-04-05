@@ -34,6 +34,39 @@ function Book(Tittle, Author, Pages, Read) {
     this.Read = Read;
 }
 
+function removeBook() {
+    const Book = this.value
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].Tittle == Book) {
+            alert(`É esse! ${myLibrary[i].Tittle}`)
+        } else {
+            continue
+        }
+    }
+}
+
+function changeReadStatus() {
+    const Book = this.value;
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].Tittle == Book) {
+            if (myLibrary[i].Read == true) {
+                myLibrary[i].Read = false;
+                this.classList.remove('Read');
+                this.classList.add('NotRead');
+                this.textContent = 'Not read';
+            } else {
+                myLibrary[i].Read = true;
+                this.classList.remove('NotRead');
+                this.classList.add('Read');
+                this.textContent = 'Read';
+            }
+        } else {
+            continue
+        }
+    }
+
+}
+
 function addBookToLibrary(Tittle, Author, Pages, Read) {
     const Main = document.querySelector('div#Main');
     const Book = document.createElement('div');
@@ -51,11 +84,14 @@ function addBookToLibrary(Tittle, Author, Pages, Read) {
     pagesSpan.classList.add('Pages');
     Buttons.classList.add('Buttons');
     removeButton.classList.add('Remove');
-    removeButton.setAttribute('value', `${Tittle}`)
 
-    removeButton.addEventListener('click', function () {
-        alert(this.value)
-    })
+    // Set attribute
+    removeButton.setAttribute('value', `${Tittle}`)
+    readButton.setAttribute('value', `${Tittle}`)
+
+    // Events
+    removeButton.addEventListener('click', removeBook)
+    readButton.addEventListener('click', changeReadStatus)
 
     // Add content
     tittleSpan.textContent = `${Tittle}`;
